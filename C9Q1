@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int input() {
+	int num;
+	cin >> num;
+	while (num < 0) {
+		cout << "Invalid input.Try again\t\t";
+		cin >> num;
+	}
+	return num;
+}
+
+void first(int a, int b, int& c) {
+	c = (a * a) - (b * b);
+}
+
+void second(int d, int e, int& f) {
+	f = 2 * d * e;
+}
+
+void hypothenus(int g, int h, int& i) {
+	i = sqrt((g * g) + (h * h));
+}
+
+void display(int A, int B, int& C, int& D, int& E) {
+	first(A, B, C);
+	second(A, B, D);
+	hypothenus(C, D, E);
+	if (C > 0 && D > 0 && E > 0) {
+		cout << "Side 1: " << C << " " << "Side 2: " << D << " " << "Side 3: " << E << endl;
+	}
+	else {
+		cout << "Invalid input5.";
+	}
+}
+
+int main() {
+	int m, n, side1, side2, hypo;
+	char option = 'Y';
+	while (option == 'Y' || option == 'y') {
+		cout << "Please key in the value of M: ";
+		m = input();
+		cout << "Please key in the value of N: ";
+		n = input();
+		display(m, n, side1, side2, hypo);
+		cout << "\nDo you wish to continue? Y/N : \t";
+		cin >> option;
+	}
+	cout << "Thanks for playing the pythagorean game";
+}
